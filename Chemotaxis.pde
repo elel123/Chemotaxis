@@ -1,18 +1,27 @@
  //declare bacteria variables here  
- Bacteria duck; 
+ Bacteria [] duck; 
  void setup()   
  {     
  	background(0);
  	//initialize bacteria variables here 
  	size(800, 800);
- 	duck = new Bacteria();  
+ 	duck = new Bacteria[500]; 
+ 	for(int i = 0; i < duck.length; i++)
+ 	{
+ 		duck[i] = new Bacteria();
+ 	}
+ 
  }   
  void draw()   
  {    
 
  	//move and show the bacteria
- 	duck.move();
- 	duck.show();   
+ 	for(int i = 0; i < duck.length; i++)
+ 	{
+ 		duck[i].move();
+ 		duck[i].show();
+ 	}
+   
  }  
  class Bacteria    
  {     
@@ -36,6 +45,6 @@
  	void show()
  	{
  		fill(redBact, greenBact, blueBact);
- 		ellipse(myX, myY, 20, 20);
+ 		ellipse(myX, myY, 15, 15);
  	}
  }    
