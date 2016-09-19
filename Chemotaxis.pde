@@ -2,10 +2,10 @@
  Bacteria [] duck; 
  void setup()   
  {     
-
+ 	//background(0);
  	//initialize bacteria variables here 
  	size(800, 800);
- 	duck = new Bacteria[1000]; 
+ 	duck = new Bacteria[3000]; 
  	for(int i = 0; i < duck.length; i++)
  	{
  		duck[i] = new Bacteria();
@@ -33,6 +33,7 @@
 
    
  }  
+
  class Bacteria    
  {     
  	//lots of java! 
@@ -49,27 +50,57 @@
  	void move() 
  	{
 
-
- 		if(mouseX < myX)
+ 		if(mousePressed)
  		{
- 			myX = myX + (int)(Math.random() * 9) - 2;
- 		}
+	 		if(mouseX > myX)
+	 		{
+	 			myX = myX + (int)(Math.random() * 9) - 3;
+	 		}
 
- 		else 
- 		{
- 			myX = myX + (int)(Math.random() * 9) - 7;	
- 		}
+	 		else 
+	 		{
+	 			myX = myX + (int)(Math.random() * 9) - 6;	
+	 		}
 
- 		if(mouseY < myY)
- 		{
- 			myY = myY + (int)(Math.random() * 9) - 2;
- 		}
+	 		if(mouseY > myY)
+	 		{
+	 			myY = myY + (int)(Math.random() * 9) - 3;
+	 		}
 
- 		else 
- 		{
- 			myY = myY + (int)(Math.random() * 9) - 7;
- 		}
+	 		else 
+	 		{
+	 			myY = myY + (int)(Math.random() * 9) - 6;
+	 		}
+	 	}
 
+	 	else if (keyPressed)
+	 	{
+	 		myX = myX;
+	 		myY = myY;
+	 	}
+
+	 	else 
+	 	{
+	 		if(mouseX < myX)
+	 		{
+	 			myX = myX + (int)(Math.random() * 9) - 3;
+	 		}
+
+	 		else 
+	 		{
+	 			myX = myX + (int)(Math.random() * 9) - 6;	
+	 		}
+
+	 		if(mouseY < myY)
+	 		{
+	 			myY = myY + (int)(Math.random() * 9) - 3;
+	 		}
+
+	 		else 
+	 		{
+	 			myY = myY + (int)(Math.random() * 9) - 6;
+	 		}	 		
+	 	}
  		//keeping bacteria onscreen
  		if(myX < 35)
  		{
@@ -101,7 +132,7 @@
  		fill(redBact, greenBact, blueBact);
  		stroke(0);
  		strokeWeight(1);
- 		ellipse(myX, myY, 15, 15);
+ 		ellipse(myX, myY, 12, 12);
 
 
  	}
