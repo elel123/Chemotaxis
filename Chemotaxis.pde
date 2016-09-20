@@ -2,10 +2,10 @@
  Bacteria [] duck; 
  void setup()   
  {     
- 	//background(0);
+ 	frameRate(10);
  	//initialize bacteria variables here 
  	size(800, 800);
- 	duck = new Bacteria[3000]; 
+ 	duck = new Bacteria[2000]; 
  	for(int i = 0; i < duck.length; i++)
  	{
  		duck[i] = new Bacteria();
@@ -37,7 +37,7 @@
  class Bacteria    
  {     
  	//lots of java! 
- 	int myX, myY, redBact, greenBact, blueBact;
+ 	int myX, myY, redBact, greenBact, blueBact, mySize;
  	Bacteria() 
  	{
  		myX = 400;
@@ -45,6 +45,7 @@
  		redBact = (int)(Math.random() * 255);
  		greenBact = (int)(Math.random() * 255);
  		blueBact = (int)(Math.random() * 255);
+ 		mySize = 12;
  	}  
 
  	void move() 
@@ -127,12 +128,30 @@
 
  	void show()
  	{
+ 		if(mouseX == myX && mouseY == myY && mySize < 40)
+ 		{
+ 
+ 			mySize += 5;
+ 		}
+
+ 		if(mySize > 40)
+ 		{
+ 			mySize += 10;
+
+ 			if(mySize > 100)
+ 			{
+ 				myX = -300;
+ 				mySize = 101;
+
+ 			}
+ 		}
+
 
 
  		fill(redBact, greenBact, blueBact);
  		stroke(0);
  		strokeWeight(1);
- 		ellipse(myX, myY, 12, 12);
+ 		ellipse(myX, myY, mySize, mySize);
 
 
  	}
