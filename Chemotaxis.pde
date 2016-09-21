@@ -2,7 +2,7 @@
  Bacteria [] duck; 
  void setup()   
  {     
- 	frameRate(10);
+ 	frameRate(15);
  	//initialize bacteria variables here 
  	size(800, 800);
  	duck = new Bacteria[2000]; 
@@ -28,6 +28,13 @@
  	for(int i = 0; i < duck.length; i++)
  	{
  		duck[i].move();
+ 		duck[i].grow();
+
+ 		if(duck[i].mySize > 100)
+ 		{
+ 			duck[i].vanish();
+ 		}
+ 		
  		duck[i].show();
  	}
 
@@ -128,6 +135,17 @@
 
  	void show()
  	{
+
+ 		fill(redBact, greenBact, blueBact);
+ 		stroke(0);
+ 		strokeWeight(1);
+ 		ellipse(myX, myY, mySize, mySize);
+
+
+ 	}
+
+ 	void grow()
+ 	{
  		if(mouseX == myX && mouseY == myY && mySize < 40)
  		{
  
@@ -138,21 +156,11 @@
  		{
  			mySize += 10;
 
- 			if(mySize > 100)
- 			{
- 				myX = -300;
- 				mySize = 101;
-
- 			}
  		}
+ 	}
 
-
-
- 		fill(redBact, greenBact, blueBact);
- 		stroke(0);
- 		strokeWeight(1);
- 		ellipse(myX, myY, mySize, mySize);
-
-
+ 	void vanish()
+ 	{
+ 		mySize = 0;
  	}
  }    
