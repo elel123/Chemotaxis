@@ -14,7 +14,7 @@
  }   
  void draw()   
  {    
-
+ 	
  	//move and show the bacteria
  	background(0);
  	//mouse
@@ -28,9 +28,13 @@
  	for(int i = 0; i < duck.length; i++)
  	{
  		duck[i].move();
- 		duck[i].grow();
 
- 		if(duck[i].mySize > 100)
+ 		if(duck[i].gone == false)
+ 		{
+ 			duck[i].grow();
+ 		}	
+
+ 		if(duck[i].mySize > 90)
  		{
  			duck[i].vanish();
  		}
@@ -45,6 +49,7 @@
  {     
  	//lots of java! 
  	int myX, myY, redBact, greenBact, blueBact, mySize;
+ 	boolean gone;
  	Bacteria() 
  	{
  		myX = 400;
@@ -53,6 +58,7 @@
  		greenBact = (int)(Math.random() * 255);
  		blueBact = (int)(Math.random() * 255);
  		mySize = 12;
+ 		gone = false;
  	}  
 
  	void move() 
@@ -152,7 +158,7 @@
  			mySize += 5;
  		}
 
- 		if(mySize > 40)
+ 		if(mySize > 30)
  		{
  			mySize += 10;
 
@@ -162,5 +168,6 @@
  	void vanish()
  	{
  		mySize = 0;
+ 		gone = true;
  	}
  }    
