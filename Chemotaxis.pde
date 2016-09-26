@@ -2,7 +2,7 @@
  Bacteria [] duck; 
  void setup()   
  {     
- 	frameRate(15);
+ 	frameRate(20);
  	//initialize bacteria variables here 
  	size(800, 800);
  	duck = new Bacteria[2000]; 
