@@ -2,10 +2,10 @@
  Bacteria [] duck; 
  void setup()   
  {     
- 	frameRate(20);
+ 	frameRate(100);
  	//initialize bacteria variables here 
  	size(800, 800);
- 	duck = new Bacteria[2000]; 
+ 	duck = new Bacteria[3000]; 
  	for(int i = 0; i < duck.length; i++)
  	{
  		duck[i] = new Bacteria();
@@ -17,9 +17,6 @@
  	
  	//move and show the bacteria
  	background(0);
- 	//mouse
- 	fill(0, 255, 0);
- 	//ellipse(mouseX, mouseY, 40, 40);
  	//border
  	noFill();
  	stroke(255);
